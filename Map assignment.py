@@ -209,7 +209,6 @@ plt.tight_layout(rect=[0, 0.03, 1, 0.93])
 _pan_start = {}
 
 def on_scroll(event):
-    """Zoom in/out centered on the cursor with the scroll wheel."""
     if event.inaxes != ax:
         return
     scale = 0.85 if event.button == "up" else 1.0 / 0.85
@@ -221,7 +220,6 @@ def on_scroll(event):
     fig.canvas.draw_idle()
 
 def on_press(event):
-    """Record cursor position when mouse button is pressed."""
     if event.inaxes != ax or event.button != 1:
         return
     _pan_start["x"] = event.xdata
@@ -242,7 +240,6 @@ def on_motion(event):
     fig.canvas.draw_idle()
 
 def on_release(event):
-    """Clear pan start on mouse release."""
     _pan_start.clear()
 
 fig.canvas.mpl_connect("scroll_event",          on_scroll)
@@ -252,7 +249,6 @@ fig.canvas.mpl_connect("button_release_event",  on_release)
 
 print("\nControls: Scroll wheel = zoom  |  Click & drag = pan")
 
-# ── 9. SAVE ──────────────────────────────────────────────────────────────────
 OUTPUT_FILE = "internet_access_dot_density.pdf"
 plt.savefig(OUTPUT_FILE, dpi=300, bbox_inches="tight",
             facecolor=fig.get_facecolor())
