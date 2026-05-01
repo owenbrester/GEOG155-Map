@@ -1,4 +1,5 @@
 """
+Owen Brester
 GEOG 155 - Stage 2: Map Creation
 Dot Density Map: Internet Access by US County
 Data Source: US Census Bureau American Community Survey (ACS) 5-Year Estimates
